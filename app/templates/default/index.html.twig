@@ -4,14 +4,31 @@
 {% endblock %}
 
 {% block sidebar %}
-    <img class="img-fluid" src="{{ asset('images/logo_cs2i.png') }}" alt="logo_cs2i">
-    <h1>Bienvenue sur le blog cs2i !</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, libero autem quia eligendi labore perspiciatis numquam, architecto, soluta eveniet corrupti quasi porro eaque cupiditate impedit sunt beatae quaerat. Numquam itaque, rem accusantium ipsa deleniti odio blanditiis velit vitae quibusdam vel?</p><br>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque incidunt ipsa quibusdam possimus exercitationem, ut a dolorum delectus facilis eaque?</p>
+	<img class="img-fluid" src="{{ asset('images/logo_cs2i.png') }}" alt="logo_cs2i">
+	<h1 class="mt-5">Bienvenue sur le blog cs2i !</h1>
+	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, libero autem quia eligendi labore perspiciatis numquam, architecto, soluta eveniet corrupti quasi porro eaque cupiditate impedit sunt beatae quaerat. Numquam itaque, rem accusantium ipsa deleniti odio blanditiis velit vitae quibusdam vel?</p><br>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque incidunt ipsa quibusdam possimus exercitationem, ut a dolorum delectus facilis eaque?</p>
 {% endblock %}
 
 {% block body %}
-    <div class="bg-body-secondary mx-5 p-5">
-        <h1 class="display-2"><strong>Le blog cs2i</strong></h1>
-    </div>
+	<div class="bg-body-secondary mx-5 p-5 mb-5">
+		<h1 class="display-2">
+			<strong>Le blog cs2i</strong>
+		</h1>
+	</div>
+	<div class="mx-5">
+		{% for post in posts %}
+
+			<h2 class="text-primary">{{post.title}}</h2>
+			<p>
+				<strong>> posté le
+					{{post.postDate|date('d/m/Y')}}</strong>
+			</p>
+			<p>{{post.content|slice(0, 500)}}...</p>
+			<div class="text-end">
+				<a class="btn btn-outline-primary" href="">Lire la suite</a>
+			</div>
+			<hr>
+		{% endfor %}
+	</div>
 {% endblock %}

@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
-#[ORM\Table("post",schema:"blog")]
+#[ORM\Table("posts",schema:"blog")]
 class Post
 {
     #[ORM\Id]
