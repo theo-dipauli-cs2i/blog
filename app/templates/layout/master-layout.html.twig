@@ -1,0 +1,29 @@
+{% extends "layout/base.html.twig" %}
+
+{% block content %}
+
+	<header>
+		{% include "partials/navbar.html.twig" %}
+		{% block header %}{% endblock %}
+	</header>
+
+
+	<div class="container my-5">
+		<div class="row g-3">
+			<aside class="col-md-3 order-2 order-md-1">
+				{% block sidebar %}{% endblock %}
+			</aside>
+			<main class="col-md-9 order-1 order-md-2 ">
+				{% block body %}{% endblock %}
+			</main>
+		</div>
+		{% block downpage %}{% endblock %}
+	</div>
+
+
+	<footer class="text-center">
+		{% block footer %}
+			{% include "partials/footer.html.twig" %}
+		{% endblock %}
+	</footer>
+{% endblock %}
