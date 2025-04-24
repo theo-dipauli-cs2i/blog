@@ -5,9 +5,9 @@
 
 {% block sidebar %}
 	<img class="img-fluid" src="{{ asset('images/logo_cs2i.png') }}" alt="logo_cs2i">
-	<h1 class="mt-5">Bienvenue sur le blog cs2i !</h1>
-	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, libero autem quia eligendi labore perspiciatis numquam, architecto, soluta eveniet corrupti quasi porro eaque cupiditate impedit sunt beatae quaerat. Numquam itaque, rem accusantium ipsa deleniti odio blanditiis velit vitae quibusdam vel?</p><br>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque incidunt ipsa quibusdam possimus exercitationem, ut a dolorum delectus facilis eaque?</p>
+	<div class="text-center mt-5">
+		<span class="badge text-bg-primary text-white fs-2">Administration</span>
+	</div>
 {% endblock %}
 
 {% block body %}
@@ -32,7 +32,10 @@
 									{{ comment.post.title }}
 								</a>
 							</td>
-							<td><strong>{{ comment.title }}</strong> <br> {{ comment.content }}</td>
+							<td>
+								<strong>{{ comment.title }} - {{ comment.username }}</strong>
+								<br>
+								{{ comment.content }}</td>
 							<td>{{comment.commentDate|date('d/m/Y')}}</td>
 							<td>
 								{% if comment.status == 1 %}
