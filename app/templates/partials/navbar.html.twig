@@ -2,6 +2,7 @@
     [
         {title: 'Accueil', route: 'app', position: 'left'},
         {title: 'À propos', route: 'app_apropos', position: 'left'},
+        {title: 'Administration', route: 'app_comment_admin', position: 'right'},
     ]
 %}
 
@@ -34,7 +35,7 @@
                     {% if item.position == 'right' %}
                         <li class="nav-item">
                             <a class="nav-link " href="{{ path(item.route) }}">
-                                <i class="{{ item.icon }}"></i> {{ item.title }}
+                                {{ item.title }}
                             </a>
                         </li>
                     {% endif %}
