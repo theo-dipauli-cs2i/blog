@@ -27,12 +27,10 @@ final class CommentAdminController extends AbstractController
     {
         $comment = $em->getRepository(Comment::class)->find($id);
 
-        if (!$comment) {
-            throw $this->createNotFoundException('Commentaire non trouvé');
+        if ($comment) {
+            $em->remove($comment);
+            $em->flush();
         }
-
-        $em->remove($comment);
-        $em->flush();
 
         return $this->redirectToRoute('app_comment_admin');
     }
@@ -42,13 +40,10 @@ final class CommentAdminController extends AbstractController
     {
         $comment = $em->getRepository(Comment::class)->find($id);
 
-        if (!$comment) {
-            throw $this->createNotFoundException('Commentaire non trouvé');
+        if ($comment) {
+            $comment->setStatus(2);
+            $em->flush();
         }
-
-        $comment->setStatus(2);
-
-        $em->flush();
 
         return $this->redirectToRoute('app_comment_admin');
     }
@@ -58,13 +53,10 @@ final class CommentAdminController extends AbstractController
     {
         $comment = $em->getRepository(Comment::class)->find($id);
 
-        if (!$comment) {
-            throw $this->createNotFoundException('Commentaire non trouvé');
+        if ($comment) {
+            $comment->setStatus(1);
+            $em->flush();
         }
-
-        $comment->setStatus(1);
-
-        $em->flush();
 
         return $this->redirectToRoute('app_comment_admin');
     }
